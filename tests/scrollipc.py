@@ -12,6 +12,7 @@ IPC_GET_WORKSPACES: int = 1
 IPC_SUBSCRIBE: int = 2
 IPC_GET_VERSION: int = 7
 IPC_MINT_ACTIVATION_TOKEN: int = 102
+IPC_LUA_EXEC: int = 124
 
 
 class ScrollIPC:
@@ -74,6 +75,15 @@ class ScrollIPC:
         self._send(IPC_MINT_ACTIVATION_TOKEN, "")
         reply_type, reply_payload = self._recv()
         if reply_type != IPC_MINT_ACTIVATION_TOKEN:
+            raise ValueError(f"Unexpected reply type: {reply_type}")
+        result = json.loads(reply_payload)
+        assert isinstance(result, dict)
+        return result
+
+    def lua_exec(self, payload: dict) -> dict:
+        self._send(IPC_LUA_EXEC, json.dumps(payload))
+        reply_type, reply_payload = self._recv()
+        if reply_type != IPC_LUA_EXEC:
             raise ValueError(f"Unexpected reply type: {reply_type}")
         result = json.loads(reply_payload)
         assert isinstance(result, dict)

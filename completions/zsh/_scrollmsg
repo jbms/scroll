@@ -29,6 +29,8 @@ types=(
 'send_tick'
 'subscribe'
 'mint_activation_token'
+'lua'
+'lua_eval'
 )
 
 _arguments -s \
