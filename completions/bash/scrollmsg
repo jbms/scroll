@@ -21,6 +21,8 @@ _scrollmsg()
     'send_tick'
     'subscribe'
     'mint_activation_token'
+    'lua'
+    'lua_eval'
   )
 
   short=(

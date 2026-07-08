@@ -25,3 +25,5 @@ complete -c scrollmsg -s t -l type -fra 'get_seats' --description "Gets a JSON-e
 complete -c scrollmsg -s t -l type -fra 'send_tick' --description "Sends a tick event to all subscribed clients."
 complete -c scrollmsg -s t -l type -fra 'subscribe' --description "Subscribe to a list of event types."
 complete -c scrollmsg -s t -l type -fra 'mint_activation_token' --description "Mint a new XDG activation token."
+complete -c scrollmsg -s t -l type -fra 'lua' --description "Execute a Lua script file with arguments."
+complete -c scrollmsg -s t -l type -fra 'lua_eval' --description "Execute inline Lua code with arguments."
